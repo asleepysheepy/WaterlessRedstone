@@ -1,0 +1,6 @@
+main: net.flutterflies.waterless.Waterless
+version: 1.0
+name: WaterlessRedstone
+description: Makes Redstone unaffected by water
+author: Ashrynn Macke|Flutterflies
+website: www.flutterflies.net
