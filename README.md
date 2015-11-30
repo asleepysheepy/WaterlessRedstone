@@ -3,28 +3,28 @@ A Minecraft Bukkit/Spigot Plugin that makes redstone and rails unaffected by wat
 
 Currently makes the following blocks unaffected by water
 
-    *Redstone Dust
+-Redstone Dust
     
-    *Redstone Repeaters
+-Redstone Repeaters
     
-    *Redstone Comparator
+-Redstone Comparator
     
-    *Redstone Torch
+-Redstone Torch
     
-    *Tripwire Hook
+-Tripwire Hook
     
-    *Tripwire String
+-Tripwire String
     
-    *Stone Button
+-Stone Button
     
-    *Wooden Button
+-Wooden Button
     
-    *Lever
+-Lever
     
-    *Rail
+-Rail
     
-    *Powered Rail
+-Powered Rail
     
-    *Activator Rail
+-Activator Rail
     
-    *Detector Rail
+-Detector Rail
