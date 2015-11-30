@@ -13,6 +13,7 @@ Currently makes the following blocks unaffected by water
     -Tripwire Hook
     
     -Tripwire String
+    
     -Stone Button
     
     -Wooden Button
