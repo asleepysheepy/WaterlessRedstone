@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.flutterflies.waterless</groupId>
     <artifactId>WaterlessRedstone</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>WaterlessRedstone</name>
     <description>A Minecraft Bukkit/Spigot Plugin that makes redstone unaffected by water</description>

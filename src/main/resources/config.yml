@@ -1,0 +1,39 @@
+# Copyright 2016 Ashrynn Macke|Flutterflies
+
+# To exclude an Item from an list
+# proceed its line with a pound sign (#)
+# Example:
+#   - REDSTONE     would be included
+#   #- REDSTONE    would not be included
+
+# It is reccomended to not mess with the spelling of items
+# in the list as misspelling an item would cause it to not
+# be enables by the plugin.
+
+# List of all Redstone blocks to be affected by the plugin.
+# All are enabled by default.
+redstone:
+- REDSTONE_WIRE
+- DIODE
+- DIODE_BLOCK_OFF
+- DIODE_BLOCK_ON
+- REDSTONE_COMPARATOR
+- REDSTONE_COMPARATOR_OFF
+- REDSTONE_COMPARATOR_ON
+- LEVER
+- STONE_BUTTON
+- WOOD_BUTTON
+- REDSTONE_TORCH_OFF
+- REDSTONE_TORCH_ON
+- REDSTONE
+- TRIPWIRE_HOOK
+- TRIPWIRE
+- STRING
+
+# List of all minecart tracks to be affected
+# All are enabled by default
+minecart:
+- ACTIVATOR_RAIL
+- RAIL
+- DETECTOR_RAIL
+- POWERED_RAIL
