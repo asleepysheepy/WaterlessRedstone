@@ -22,9 +22,27 @@ public class Waterless extends JavaPlugin
     @Override
     public void onEnable()
     {
-        config = getConfig();
-        waterlessMats.addAll(makeList(config.getStringList("redstone")));
-        waterlessMats.addAll(makeList(config.getStringList("minecart")));
+        config = this.getConfig();
+        List<String> stringList = config.getStringList("redstone");
+        if(stringList != null)
+        {
+            waterlessMats.addAll(makeList(stringList));
+            getLogger().info("Enabling Redstone blocks");
+        }
+        else
+        {
+            getLogger().info("No Redstone blocks to enable");
+        }
+        stringList = config.getStringList("minecart");
+        if(stringList != null)
+        {
+            waterlessMats.addAll(makeList(stringList));
+            getLogger().info("Enabling Minecart rails.");
+        }
+        else
+        {
+            getLogger().info("No Minecart rails to enable.");
+        }
         Bukkit.getPluginManager().registerEvents(new WaterListener(waterlessMats), this);
 
     }
@@ -41,7 +59,10 @@ public class Waterless extends JavaPlugin
         List<Material> materialList = new ArrayList<Material>();
         for(String string : list)
         {
-            materialList.add(Material.getMaterial(string));
+            if(string != null)
+            {
+                materialList.add(Material.getMaterial(string));
+            }
         }
         return materialList;
     }

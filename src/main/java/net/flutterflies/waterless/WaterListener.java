@@ -13,11 +13,12 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WaterListener implements Listener
 {
-    private static List<Material> materials;
+    private static List<Material> materials = new ArrayList<Material>();
 
     public WaterListener(List<Material> list)
     {

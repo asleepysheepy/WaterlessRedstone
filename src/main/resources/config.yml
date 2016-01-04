@@ -34,6 +34,6 @@ redstone:
 # All are enabled by default
 minecart:
 - ACTIVATOR_RAIL
-- RAIL
+- RAILS
 - DETECTOR_RAIL
 - POWERED_RAIL
