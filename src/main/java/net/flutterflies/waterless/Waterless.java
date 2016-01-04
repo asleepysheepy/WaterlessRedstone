@@ -17,7 +17,7 @@ import java.util.List;
 public class Waterless extends JavaPlugin
 {
     FileConfiguration config;
-    List<Material> waterlessMats;
+    List<Material> waterlessMats = new ArrayList<Material>();
 
     @Override
     public void onEnable()
