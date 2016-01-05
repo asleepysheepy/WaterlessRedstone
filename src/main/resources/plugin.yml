@@ -4,3 +4,15 @@ name: WaterlessRedstone
 description: Makes Redstone unaffected by water
 author: Ashrynn Macke|Flutterflies
 website: www.flutterflies.net
+
+commands:
+  wlrblocks:
+    description: Get a list of all blocks currently enabled by Waterless Redstone
+    usage: /<command>
+
+permissions:
+ wlr.*:
+   children:
+     wlr.blocks:
+       default: true
+       description: Give access to the wlr command

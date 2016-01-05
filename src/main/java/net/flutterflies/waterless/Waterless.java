@@ -44,6 +44,7 @@ public class Waterless extends JavaPlugin
             getLogger().info("No Minecart rails to enable.");
         }
         Bukkit.getPluginManager().registerEvents(new WaterListener(waterlessMats), this);
+        getCommand("wlrblocks").setExecutor(new WaterCommand(waterlessMats));
         saveConfig();
     }
 
