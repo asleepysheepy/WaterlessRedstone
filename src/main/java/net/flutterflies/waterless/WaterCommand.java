@@ -33,15 +33,18 @@ public class WaterCommand implements CommandExecutor
 		boolean cmdResult = false;
 		if(cmd.getName().equalsIgnoreCase("wlrblocks"))
 		{
-			if(sender instanceof Player)
+			if(sender.hasPermission("wlr.blocks"))
 			{
-				sender.sendMessage(coloredPrefix + makeString(materials));
-				cmdResult = true;
-			}
-			else
-			{
-				sender.sendMessage(plainPrefix + makeString(materials));
-				cmdResult = true;
+				if(sender instanceof Player)
+				{
+					sender.sendMessage(coloredPrefix + makeString(materials));
+					cmdResult = true;
+				}
+				else
+				{
+					sender.sendMessage(plainPrefix + makeString(materials));
+					cmdResult = true;
+				}
 			}
 		}
 		return cmdResult;
@@ -49,7 +52,7 @@ public class WaterCommand implements CommandExecutor
 
 	public String makeString(List<Material> list)
 	{
-		String names = " ";
+		String names = "";
 
 		for(Material material : list)
 		{
