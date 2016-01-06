@@ -23,6 +23,7 @@ public class Waterless extends JavaPlugin
     public void onEnable()
     {
         config = this.getConfig();
+        saveDefaultConfig();
         List<String> stringList = config.getStringList("redstone");
         if(stringList != null)
         {
