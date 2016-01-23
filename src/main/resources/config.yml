@@ -37,3 +37,28 @@ minecart:
 - RAILS
 - DETECTOR_RAIL
 - POWERED_RAIL
+
+# List of all foliage to be affected
+# None are enabled by default
+foliage:
+# All six types of saplings
+#- SAPLING
+#- WEB
+# Tall grass and ferns
+#- LONG_GRASS
+#- YELLOW_FLOWER
+# All one high flowers except yellow flowers
+#- RED_ROSE
+#- RED_MUSHROOM
+#- BROWN_MUSHROOM
+#- VINE
+# All two high flowers and grasses
+#- DOUBLE_PLANT
+
+# All other blocks that water can wash away
+# None are enabled by default
+other:
+#- TORCH
+#- SNOW
+#- CARPET
+#- FLOWER_POT

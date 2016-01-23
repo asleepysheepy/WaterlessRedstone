@@ -15,33 +15,26 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WaterCommand implements CommandExecutor
-{
+public class WaterCommand implements CommandExecutor {
 	private String coloredPrefix = ChatColor.DARK_AQUA + "[" + ChatColor.LIGHT_PURPLE + "Waterless Redstone" + ChatColor.DARK_AQUA + "] " + ChatColor.RESET;
 	private String plainPrefix = "[Waterless Redstone] ";
 	private List<Material> materials = new ArrayList<Material>();
 
 
-	public WaterCommand(List<Material> list)
-	{
+	public WaterCommand(List<Material> list) {
 		materials = list;
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-	{
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		boolean cmdResult = false;
-		if(cmd.getName().equalsIgnoreCase("wlrblocks"))
-		{
-			if(sender.hasPermission("wlr.blocks"))
-			{
-				if(sender instanceof Player)
-				{
+		if(cmd.getName().equalsIgnoreCase("wlrblocks")) {
+			if(sender.hasPermission("wlr.blocks")) {
+				if(sender instanceof Player) {
 					sender.sendMessage(coloredPrefix + makeString(materials));
 					cmdResult = true;
 				}
-				else
-				{
+				else {
 					sender.sendMessage(plainPrefix + makeString(materials));
 					cmdResult = true;
 				}
@@ -50,12 +43,10 @@ public class WaterCommand implements CommandExecutor
 		return cmdResult;
 	}
 
-	public String makeString(List<Material> list)
-	{
+	public String makeString(List<Material> list) {
 		String names = "";
 
-		for(Material material : list)
-		{
+		for(Material material : list) {
 			names = names + material.name().toLowerCase() + ", ";
 		}
 
