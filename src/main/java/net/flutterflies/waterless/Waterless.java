@@ -15,8 +15,8 @@ import java.util.List;
 
 
 public class Waterless extends JavaPlugin {
-	FileConfiguration config;
-	List<Material> waterlessMats = new ArrayList<Material>();
+	private FileConfiguration config;
+	private List<Material> waterlessMats = new ArrayList<Material>();
 
 	@Override
 	public void onEnable() {
@@ -66,7 +66,7 @@ public class Waterless extends JavaPlugin {
 		Bukkit.getScheduler().cancelTasks(this);
 	}
 
-	public List<Material> makeList(List<String> list) {
+	private List<Material> makeList(List<String> list) {
 		List<Material> materialList = new ArrayList<Material>();
 		for(String string : list) {
 			if(string != null) {

@@ -13,13 +13,12 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class WaterListener implements Listener {
-	private static List<Material> materials = new ArrayList<Material>();
+class WaterListener implements Listener {
+	private static List<Material> materials;
 
-	public WaterListener(List<Material> list) {
+	WaterListener(List<Material> list) {
 		materials = list;
 	}
 
@@ -33,11 +32,18 @@ public class WaterListener implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-			if(event.getPlayer().getItemInHand().getType() == Material.WATER || event.getPlayer().getItemInHand().getType() == Material.WATER_BUCKET) {
+			if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER ||
+				event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER_BUCKET) {
 				if(materials.contains(event.getClickedBlock().getType())) {
 					event.setCancelled(true);
 				}
 			}
+            else if(event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER ||
+                event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER_BUCKET) {
+                if(materials.contains(event.getClickedBlock().getType())) {
+                    event.setCancelled(true);
+                }
+            }
 		}
 	}
 }
