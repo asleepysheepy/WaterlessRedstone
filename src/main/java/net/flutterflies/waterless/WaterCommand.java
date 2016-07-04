@@ -18,7 +18,7 @@ import java.util.List;
 class WaterCommand implements CommandExecutor {
     private String coloredPrefix = ChatColor.DARK_AQUA + "[" + ChatColor.LIGHT_PURPLE + "Waterless Redstone" + ChatColor.DARK_AQUA + "] " + ChatColor.RESET;
     private String plainPrefix = "[Waterless Redstone] ";
-    private List<Material> materials = new ArrayList<Material>();
+    private List<Material> materials = new ArrayList<>();
 
 
     WaterCommand(List<Material> list) {

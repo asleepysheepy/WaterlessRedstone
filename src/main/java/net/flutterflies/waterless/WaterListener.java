@@ -16,34 +16,34 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.List;
 
 class WaterListener implements Listener {
-	private static List<Material> materials;
+    private static List<Material> materials;
 
-	WaterListener(List<Material> list) {
-		materials = list;
-	}
+    WaterListener(List<Material> list) {
+        materials = list;
+    }
 
-	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onBlockFromTo(BlockFromToEvent event) {
-		if(materials.contains(event.getToBlock().getType())) {
-			event.setCancelled(true);
-		}
-	}
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onBlockFromTo(BlockFromToEvent event) {
+        if(materials.contains(event.getToBlock().getType())) {
+            event.setCancelled(true);
+        }
+    }
 
-	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onPlayerInteract(PlayerInteractEvent event) {
-		if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-			if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER ||
-				event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER_BUCKET) {
-				if(materials.contains(event.getClickedBlock().getType())) {
-					event.setCancelled(true);
-				}
-			}
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER ||
+                event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER_BUCKET) {
+                if(materials.contains(event.getClickedBlock().getType())) {
+                    event.setCancelled(true);
+                }
+            }
             else if(event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER ||
                 event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER_BUCKET) {
                 if(materials.contains(event.getClickedBlock().getType())) {
                     event.setCancelled(true);
                 }
             }
-		}
-	}
+        }
+    }
 }
