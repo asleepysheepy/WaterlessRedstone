@@ -12,17 +12,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class WaterCommand implements CommandExecutor {
     private String coloredPrefix = ChatColor.DARK_AQUA + "[" + ChatColor.LIGHT_PURPLE + "Waterless Redstone" + ChatColor.DARK_AQUA + "] " + ChatColor.RESET;
     private String plainPrefix = "[Waterless Redstone] ";
-    private List<Material> materials = new ArrayList<>();
+    private final Waterless plugin;
 
-
-    WaterCommand(List<Material> list) {
-        materials = list;
+    WaterCommand(Waterless plugin) {
+        this.plugin = plugin;
     }
 
     @Override
@@ -31,11 +29,11 @@ class WaterCommand implements CommandExecutor {
         if(cmd.getName().equalsIgnoreCase("wlrblocks")) {
             if(sender.hasPermission("wlr.blocks")) {
                 if(sender instanceof Player) {
-                    sender.sendMessage(coloredPrefix + makeString(materials));
+                    sender.sendMessage(coloredPrefix + makeString(plugin.getWaterlessMats()));
                     cmdResult = true;
                 }
                 else {
-                    sender.sendMessage(plainPrefix + makeString(materials));
+                    sender.sendMessage(plainPrefix + makeString(plugin.getWaterlessMats()));
                     cmdResult = true;
                 }
             }

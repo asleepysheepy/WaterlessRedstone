@@ -13,35 +13,45 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import java.util.List;
-
 class WaterListener implements Listener {
-    private static List<Material> materials;
+    private final Waterless plugin;
 
-    WaterListener(List<Material> list) {
-        materials = list;
+    WaterListener(Waterless plugin) {
+        this.plugin = plugin;
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBlockFromTo(BlockFromToEvent event) {
-        if(materials.contains(event.getToBlock().getType())) {
+        if(plugin.getWaterlessMats().contains(event.getToBlock().getType())) {
             event.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerInteract(PlayerInteractEvent event) {
+
+        String version = plugin.getServer().getClass().getPackage().getName();
+        version = version.substring(version.lastIndexOf('.') + 1);
+
+        Material materialInHand, materialInOffHand = null;
+
+        if(version.contains("1_8")) {
+            materialInHand = event.getPlayer().getItemInHand().getType();
+        }
+        else {
+            materialInHand = event.getPlayer().getInventory().getItemInMainHand().getType();
+            materialInOffHand = event.getPlayer().getInventory().getItemInOffHand().getType();
+        }
+
         if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER ||
-                event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATER_BUCKET) {
-                if(materials.contains(event.getClickedBlock().getType())) {
+            if(plugin.getWaterlessMats().contains(event.getClickedBlock().getType())) {
+                if(materialInHand.equals(Material.WATER) || materialInHand.equals(Material.WATER_BUCKET)) {
                     event.setCancelled(true);
                 }
-            }
-            else if(event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER ||
-                event.getPlayer().getInventory().getItemInOffHand().getType() == Material.WATER_BUCKET) {
-                if(materials.contains(event.getClickedBlock().getType())) {
-                    event.setCancelled(true);
+                else if(materialInOffHand != null) {
+                    if(materialInOffHand.equals(Material.WATER) || materialInOffHand.equals(Material.WATER_BUCKET)) {
+                        event.setCancelled(true);
+                    }
                 }
             }
         }

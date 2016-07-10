@@ -1,14 +1,19 @@
 # Copyright 2016 Ashrynn Macke|Flutterflies
-
+#
 # To exclude an Item from an list
 # proceed its line with a pound sign (#)
 # Example:
 #   - REDSTONE     would be included
 #   #- REDSTONE    would not be included
-
-# It is reccomended to not mess with the spelling of items
-# in the list as misspelling an item would cause it to not
-# be enables by the plugin.
+#
+# You can add any block you want to this list. Any blocks you
+# add should be added under the other section. If you add a block
+# of item to any of these lists (you shouldn't need to) please
+# make sure you are using the name for that block as defined
+# on the page linked below or the block will not be properly
+# added to the list.
+#
+# https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
 
 # List of all Redstone blocks to be affected by the plugin.
 # All are enabled by default.
